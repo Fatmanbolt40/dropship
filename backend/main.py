@@ -9,6 +9,7 @@ sys.path.append(str(Path(__file__).parent.parent))
 from core.config import settings
 from core.database import engine, Base
 from api import products, suppliers, trends, marketing, analytics, automation
+from api.admin import admin_router
 
 # Create tables
 try:
@@ -38,6 +39,7 @@ app.include_router(trends.router, prefix="/api/trends", tags=["Trends"])
 app.include_router(marketing.router, prefix="/api/marketing", tags=["Marketing"])
 app.include_router(analytics.router, prefix="/api/analytics", tags=["Analytics"])
 app.include_router(automation.router, prefix="/api/automation", tags=["Automation"])
+app.include_router(admin_router, tags=["Admin"])
 
 @app.get("/")
 async def root():
