@@ -5,115 +5,289 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AI-Powered Dropshipping Automation System - 24/7 Product Finding, Auto-Fulfillment, and Revenue Generation">
     <title>AI Dropshipping Automation Dashboard</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#10b981',
+                        accent: '#8b5cf6',
+                        dark: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                            750: '#293548'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'slide-in': 'slideIn 0.3s ease-out'
+                    },
+                    keyframes: {
+                        slideIn: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        .status-indicator {
+            position: relative;
+        }
+        .status-indicator::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            right: -8px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: currentColor;
+        }
+        .progress-bar {
+            transition: width 1s ease-in-out;
+        }
+        .pulse-glow {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+        .admin-panel {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            height: 100vh;
+            width: 400px;
+            transition: right 0.3s ease-in-out;
+            z-index: 1000;
+        }
+        .admin-panel.open {
+            right: 0;
+        }
+        .slider-container {
+            position: relative;
+        }
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            border-rabutton onclick="toggleAdminPanel()" class="px-4 py-2 bg-purple-600 hover:bg-purple-500 rounded-lg flex items-center gap-2 transition">
+                        <i class="fas fa-cog"></i>
+                        <span>Admin</span>
+                    </button>
+                    <dius: 5px;
+            background: #334155;
+            outline: none;
+        }
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3b82f6;
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+        }
+        .slider::-webkit-slider-thumb:hover {
+            background: #2563eb;
+            transform: scale(1.1);
+        }
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3b82f6;
+            cursor: pointer;
+            border: none;
+        }
+        .admin-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+        .admin-overlay.active {
+            display: block;
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-white">
+<body class="bg-dark-900 text-gray-100">
     <!-- Header -->
-    <header class="bg-gray-800 border-b border-gray-700">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <h1 class="text-2xl font-bold text-blue-400">🚀 AI Dropshipping Automation</h1>
-                <div class="flex gap-4">
-                    <span class="px-4 py-2 bg-green-600 rounded-lg">🟢 System Active</span>
-                    <span class="text-gray-400">January 5, 2026</span>
+    <header class="bg-dark-800 border-b border-dark-700 shadow-lg">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-xl"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">🚀 AI Dropshipping Automation</h1>
+                </div>
+                
+                <div class="flex flex-wrap items-center gap-4">
+                    <div class="px-4 py-2 bg-green-600 rounded-lg flex items-center gap-2 animate-pulse-slow">
+                        <span class="w-2 h-2 bg-white rounded-full"></span>
+                        <span>🟢 System Active</span>
+                    </div>
+                    <div class="text-gray-300 text-sm md:text-base">January 5, 2026</div>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-6 py-8">
+    <main class="container mx-auto px-4 py-8">
         <!-- Stats Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8 fade-in">
-            <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
-                <div class="text-gray-400 text-sm mb-2">Total Products</div>
-                <div class="text-3xl font-bold text-blue-400">98</div>
-                <div class="text-green-400 text-sm mt-2">↑ +12 today</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="stat-card bg-dark-800 p-6 rounded-xl border border-dark-700 transition-all duration-300 hover:bg-dark-750">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <div class="text-gray-400 text-sm mb-2">Total Products</div>
+                        <div class="text-3xl font-bold text-blue-400">98</div>
+                    </div>
+                    <i class="fas fa-boxes text-blue-500 text-xl"></i>
+                </div>
+                <div class="flex items-center mt-3">
+                    <span class="text-green-400 text-sm flex items-center gap-1"><i class="fas fa-arrow-up"></i> +12 today</span>
+                </div>
             </div>
-            <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
-                <div class="text-gray-400 text-sm mb-2">Active Orders</div>
-                <div class="text-3xl font-bold text-purple-400">0</div>
-                <div class="text-gray-500 text-sm mt-2">Awaiting Amazon approval</div>
+            
+            <div class="stat-card bg-dark-800 p-6 rounded-xl border border-dark-700 transition-all duration-300 hover:bg-dark-750">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <div class="text-gray-400 text-sm mb-2">Active Orders</div>
+                        <div class="text-3xl font-bold text-purple-400">0</div>
+                    </div>
+                    <i class="fas fa-shopping-cart text-purple-500 text-xl"></i>
+                </div>
+                <div class="flex items-center mt-3">
+                    <span class="text-gray-400 text-sm">Awaiting Amazon approval</span>
+                </div>
             </div>
-            <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
-                <div class="text-gray-400 text-sm mb-2">Potential Revenue</div>
-                <div class="text-3xl font-bold text-green-400">$1,890</div>
-                <div class="text-gray-400 text-sm mt-2">Based on current inventory</div>
+            
+            <div class="stat-card bg-dark-800 p-6 rounded-xl border border-dark-700 transition-all duration-300 hover:bg-dark-750">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <div class="text-gray-400 text-sm mb-2">Potential Revenue</div>
+                        <div class="text-3xl font-bold text-green-400">$1,890</div>
+                    </div>
+                    <i class="fas fa-dollar-sign text-green-500 text-xl"></i>
+                </div>
+                <div class="flex items-center mt-3">
+                    <span class="text-gray-400 text-sm">Based on current inventory</span>
+                </div>
             </div>
-            <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
-                <div class="text-gray-400 text-sm mb-2">Avg Profit Margin</div>
-                <div class="text-3xl font-bold text-yellow-400">30%</div>
-                <div class="text-gray-400 text-sm mt-2">Per product</div>
+            
+            <div class="stat-card bg-dark-800 p-6 rounded-xl border border-dark-700 transition-all duration-300 hover:bg-dark-750">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <div class="text-gray-400 text-sm mb-2">Avg Profit Margin</div>
+                        <div class="text-3xl font-bold text-yellow-400">30%</div>
+                    </div>
+                    <i class="fas fa-percentage text-yellow-500 text-xl"></i>
+                </div>
+                <div class="flex items-center mt-3">
+                    <span class="text-gray-400 text-sm">Per product</span>
+                </div>
             </div>
         </div>
 
         <!-- System Status -->
-        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 mb-8 fade-in">
-            <h2 class="text-xl font-bold mb-4">⚡ Automation Status</h2>
-            <div class="space-y-3">
-                <div class="flex items-center justify-between p-3 bg-gray-900 rounded">
+        <div class="bg-dark-800 p-6 rounded-xl border border-dark-700 mb-8 shadow-lg">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold flex items-center gap-2"><i class="fas fa-cogs text-primary"></i> Automation Status</h2>
+                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Last updated: 5 mins ago</span>
+            </div>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between p-4 bg-dark-750 rounded-lg border border-dark-600 hover:bg-dark-700 transition">
                     <div class="flex items-center gap-3">
                         <span class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
                         <span>AI Product Finder</span>
                     </div>
-                    <span class="text-green-400">Running</span>
+                    <span class="text-green-400 font-medium">Running</span>
                 </div>
-                <div class="flex items-center justify-between p-3 bg-gray-900 rounded">
+                <div class="flex items-center justify-between p-4 bg-dark-750 rounded-lg border border-dark-600 hover:bg-dark-700 transition">
                     <div class="flex items-center gap-3">
                         <span class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
                         <span>Backend API</span>
                     </div>
-                    <span class="text-green-400">Running</span>
+                    <span class="text-green-400 font-medium">Running</span>
                 </div>
-                <div class="flex items-center justify-between p-3 bg-gray-900 rounded">
+                <div class="flex items-center justify-between p-4 bg-dark-750 rounded-lg border border-dark-600 hover:bg-dark-700 transition">
                     <div class="flex items-center gap-3">
                         <span class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
                         <span>Order Fulfillment</span>
                     </div>
-                    <span class="text-green-400">Running</span>
+                    <span class="text-green-400 font-medium">Running</span>
                 </div>
-                <div class="flex items-center justify-between p-3 bg-gray-900 rounded">
+                <div class="flex items-center justify-between p-4 bg-dark-750 rounded-lg border border-dark-600 hover:bg-dark-700 transition">
                     <div class="flex items-center gap-3">
                         <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
                         <span>Amazon Seller Account</span>
                     </div>
-                    <span class="text-yellow-400">Pending Verification</span>
+                    <span class="text-yellow-400 font-medium">Pending Verification</span>
                 </div>
             </div>
         </div>
 
         <!-- Latest Products -->
-        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 fade-in">
-            <h2 class="text-xl font-bold mb-4">📦 Latest Products Found</h2>
-            <div class="space-y-3">
-                <div class="flex items-center justify-between p-4 bg-gray-900 rounded hover:bg-gray-850 transition">
-                    <div>
-                        <div class="font-semibold">Tork Advanced Toilet Paper Roll</div>
-                        <div class="text-sm text-gray-400">ASIN: B0DCWVXZWF</div>
+        <div class="bg-dark-800 p-6 rounded-xl border border-dark-700 mb-8 shadow-lg">
+            <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><i class="fas fa-box-open text-secondary"></i> Latest Products Found</h2>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between p-4 bg-dark-750 rounded-lg border border-dark-600 hover:bg-dark-700 transition group">
+                    <div class="flex-1">
+                        <div class="font-semibold text-lg">Tork Advanced Toilet Paper Roll</div>
+                        <div class="text-sm text-gray-400 flex items-center gap-2 mt-1">
+                            <i class="fas fa-barcode"></i> ASIN: B0DCWVXZWF
+                        </div>
                     </div>
-                    <div class="text-right">
-                        <div class="text-green-400 font-bold">$18.90 profit</div>
+                    <div class="text-right min-w-[120px]">
+                        <div class="text-green-400 font-bold text-lg">$18.90 profit</div>
                         <div class="text-sm text-gray-400">30% margin</div>
                     </div>
                 </div>
-                <div class="flex items-center justify-between p-4 bg-gray-900 rounded hover:bg-gray-850 transition">
-                    <div>
-                        <div class="font-semibold">365 by Whole Foods Market Organic Milk</div>
-                        <div class="text-sm text-gray-400">ASIN: B074H65X4C</div>
+                
+                <div class="flex items-center justify-between p-4 bg-dark-750 rounded-lg border border-dark-600 hover:bg-dark-700 transition group">
+                    <div class="flex-1">
+                        <div class="font-semibold text-lg">365 by Whole Foods Market Organic Milk</div>
+                        <div class="text-sm text-gray-400 flex items-center gap-2 mt-1">
+                            <i class="fas fa-barcode"></i> ASIN: B074H65X4C
+                        </div>
                     </div>
-                    <div class="text-right">
-                        <div class="text-green-400 font-bold">$15.20 profit</div>
+                    <div class="text-right min-w-[120px]">
+                        <div class="text-green-400 font-bold text-lg">$15.20 profit</div>
                         <div class="text-sm text-gray-400">28% margin</div>
                     </div>
                 </div>
-                <div class="flex items-center justify-between p-4 bg-gray-900 rounded hover:bg-gray-850 transition">
-                    <div>
-                        <div class="font-semibold">Amazon Basics 2-Ply Soft Toilet Paper</div>
-                        <div class="text-sm text-gray-400">ASIN: B09ZYDZ6ML</div>
+                
+                <div class="flex items-center justify-between p-4 bg-dark-750 rounded-lg border border-dark-600 hover:bg-dark-700 transition group">
+                    <div class="flex-1">
+                        <div class="font-semibold text-lg">Amazon Basics 2-Ply Soft Toilet Paper</div>
+                        <div class="text-sm text-gray-400 flex items-center gap-2 mt-1">
+                            <i class="fas fa-barcode"></i> ASIN: B09ZYDZ6ML
+                        </div>
                     </div>
-                    <div class="text-right">
-                        <div class="text-green-400 font-bold">$22.40 profit</div>
+                    <div class="text-right min-w-[120px]">
+                        <div class="text-green-400 font-bold text-lg">$22.40 profit</div>
                         <div class="text-sm text-gray-400">32% margin</div>
                     </div>
                 </div>
@@ -121,59 +295,59 @@
         </div>
 
         <!-- Revenue Projection -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-            <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 fade-in">
-                <h2 class="text-xl font-bold mb-4">💰 Revenue Projections</h2>
-                <div class="space-y-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <div class="bg-dark-800 p-6 rounded-xl border border-dark-700 shadow-lg">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><i class="fas fa-chart-line text-secondary"></i> Revenue Projections</h2>
+                <div class="space-y-6">
                     <div>
                         <div class="flex justify-between mb-2">
-                            <span class="text-gray-400">Month 1 (Conservative)</span>
+                            <span class="text-gray-300">Month 1 (Conservative)</span>
                             <span class="font-bold text-green-400">$3,000</span>
                         </div>
-                        <div class="w-full bg-gray-700 rounded-full h-2">
-                            <div class="bg-green-500 h-2 rounded-full" style="width: 30%"></div>
+                        <div class="w-full bg-dark-700 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full progress-bar" style="width: 30%"></div>
                         </div>
                     </div>
                     <div>
                         <div class="flex justify-between mb-2">
-                            <span class="text-gray-400">Month 2 (Realistic)</span>
+                            <span class="text-gray-300">Month 2 (Realistic)</span>
                             <span class="font-bold text-blue-400">$7,500</span>
                         </div>
-                        <div class="w-full bg-gray-700 rounded-full h-2">
-                            <div class="bg-blue-500 h-2 rounded-full" style="width: 75%"></div>
+                        <div class="w-full bg-dark-700 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-3 rounded-full progress-bar" style="width: 75%"></div>
                         </div>
                     </div>
                     <div>
                         <div class="flex justify-between mb-2">
-                            <span class="text-gray-400">Month 3 (Aggressive)</span>
+                            <span class="text-gray-300">Month 3 (Aggressive)</span>
                             <span class="font-bold text-purple-400">$15,000</span>
                         </div>
-                        <div class="w-full bg-gray-700 rounded-full h-2">
-                            <div class="bg-purple-500 h-2 rounded-full" style="width: 100%"></div>
+                        <div class="w-full bg-dark-700 rounded-full h-3">
+                            <div class="bg-gradient-to-r from-purple-500 to-purple-600 h-3 rounded-full progress-bar" style="width: 100%"></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 fade-in">
-                <h2 class="text-xl font-bold mb-4">🎯 Next Actions</h2>
-                <ul class="space-y-3">
-                    <li class="flex items-start gap-3">
-                        <span class="text-yellow-400 mt-1">⏳</span>
+            <div class="bg-dark-800 p-6 rounded-xl border border-dark-700 shadow-lg">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><i class="fas fa-tasks text-accent"></i> Next Actions</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3 p-3 bg-dark-750 rounded-lg border border-dark-600 hover:bg-dark-700 transition">
+                        <span class="text-yellow-400 mt-1 text-xl">⏳</span>
                         <div>
                             <div class="font-semibold">Wait for Amazon approval</div>
                             <div class="text-sm text-gray-400">Usually 1-3 business days</div>
                         </div>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-green-400 mt-1">✓</span>
+                    <li class="flex items-start gap-3 p-3 bg-dark-750 rounded-lg border border-dark-600 hover:bg-dark-700 transition">
+                        <span class="text-green-400 mt-1 text-xl">✓</span>
                         <div>
                             <div class="font-semibold">Automation running 24/7</div>
                             <div class="text-sm text-gray-400">Finding profitable products</div>
                         </div>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-blue-400 mt-1">📊</span>
+                    <li class="flex items-start gap-3 p-3 bg-dark-750 rounded-lg border border-dark-600 hover:bg-dark-700 transition">
+                        <span class="text-blue-400 mt-1 text-xl">📊</span>
                         <div>
                             <div class="font-semibold">Check status daily</div>
                             <div class="text-sm text-gray-400">Monitor product discoveries</div>
@@ -183,22 +357,334 @@
             </div>
         </div>
 
-        <!-- Footer Info -->
-        <div class="mt-8 p-6 bg-blue-900 border border-blue-700 rounded-lg fade-in">
-            <h3 class="text-lg font-bold mb-2">🚀 System Ready!</h3>
-            <p class="text-gray-300">Your automation is live and working. Once Amazon approves your seller account, products will automatically list and sales will begin. First sale typically within 7-14 days after approval.</p>
-            <div class="mt-4 flex gap-4">
-                <a href="https://github.com/Fatmanbolt40/dropship" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg transition">View on GitHub</a>
-                <a href="#" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition">Documentation</a>
+        <!-- System Ready Alert -->
+        <div class="bg-gradient-to-r from-blue-900 to-purple-900 border border-blue-700 rounded-xl p-6 shadow-lg">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex-1">
+                    <h3 class="text-xl font-bold mb-2 flex items-center gap-2"><i class="fas fa-rocket text-yellow-400"></i> System Ready!</h3>
+                    <p class="text-gray-300">Your automation is live and working. Once Amazon approves your seller account, products will automatically list and sales will begin. First sale typically within 7-14 days after approval.</p>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <a href="https://github.com/Fatmanbolt40/dropship" class="px-5 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg transition flex items-center gap-2 shadow-md">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                    <a href="#" class="px-5 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition flex items-center gap-2 shadow-md">
+                        <i class="fas fa-book"></i> Documentation
+                    </a>
+                </div>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 border-t border-gray-700 mt-12 py-6">
-        <div class="container mx-auto px-6 text-center text-gray-400">
+    <footer class="bg-dark-800 border-t border-dark-700 mt-12 py-6">
+        <div class="container mx-auto px-4 text-center text-gray-400">
             <p>AI Dropshipping Automation System | Built with Next.js & FastAPI | © 2026</p>
+            <div class="mt-3 flex justify-center gap-4">
+                <a href="#" class="hover:text-blue-400 transition">Privacy Policy</a>
+                <a href="#" class="hover:text-blue-400 transition">Terms of Service</a>
+                <a href="#" class="hover:text-blue-400 transition">Support</a>
+         Admin Panel Overlay -->
+    <div class="admin-overlay" id="adminOverlay" onclick="toggleAdminPanel()"></div>
+// Admin Panel Functions
+        function toggleAdminPanel() {
+            const panel = document.getElementById('adminPanel');
+            const overlay = document.getElementById('adminOverlay');
+            panel.classList.toggle('open');
+            overlay.classList.toggle('active');
+        }
+
+        function updateValue(id, value) {
+            const displayId = id + 'Value';
+            const element = document.getElementById(displayId);
+            
+            if (id === 'scanFrequency') {
+                element.textContent = value + ' min';
+            } else if (id === 'profitMargin') {
+                element.textContent = value + '%';
+            } else if (id === 'maxPrice') {
+                element.textContent = '$' + value;
+            } else if (id === 'postFrequency') {
+                element.textContent = value;
+            } else if (id === 'stockThreshold') {
+                element.textContent = value;
+            }
+        }
+
+        function updateContentQuality(value) {
+            const labels = ['Fast', 'Balanced', 'Premium'];
+            document.getElementById('contentQualityValue').textContent = labels[value - 1];
+        }
+
+        function toggleAutoFinder(enabled) {
+            console.log('Auto-Finder:', enabled ? 'Enabled' : 'Disabled');
+            showStatus(enabled ? 'Auto-Finder enabled' : 'Auto-Finder disabled', 'info');
+        }
+
+        function toggleAutoPost(enabled) {
+            console.log('Auto-Post:', enabled ? 'Enabled' : 'Disabled');
+            showStatus(enabled ? 'Auto-posting enabled' : 'Auto-posting disabled', 'info');
+        }
+
+        function toggleAutoRestock(enabled) {
+            console.log('Auto-Restock:', enabled ? 'Enabled' : 'Disabled');
+            showStatus(enabled ? 'Auto-restock enabled' : 'Auto-restock disabled', 'info');
+        }
+
+        function saveAdminSettings() {
+            const settings = {
+                scanFrequency: document.getElementById('scanFrequency').value,
+                profitMargin: document.getElementById('profitMargin').value,
+                maxPrice: document.getElementById('maxPrice').value,
+                contentQuality: document.getElementById('contentQuality').value,
+                postFrequency: document.getElementById('postFrequency').value,
+                stockThreshold: document.getElementById('stockThreshold').value,
+                autoFinder: document.getElementById('autoFinderToggle').checked,
+                autoPost: document.getElementById('autoPostToggle').checked,
+                autoRestock: document.getElementById('autoRestockToggle').checked,
+                timestamp: new Date().toISOString()
+            };
+
+            // Save to localStorage
+            localStorage.setItem('adminSettings', JSON.stringify(settings));
+
+            // Send to backend API
+            fetch('/api/admin/settings', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(settings)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Settings saved:', data);
+                showStatus('✅ Settings saved successfully!', 'success');
+            })
+            .catch(error => {
+                console.log('Settings saved locally (backend offline)');
+                showStatus('⚠️ Settings saved locally', 'warning');
+            });
+        }
+
+        function loadAdminSettings() {
+            const saved = localStorage.getItem('adminSettings');
+            if (saved) {
+                const settings = JSON.parse(saved);
+                
+                document.getElementById('scanFrequency').value = settings.scanFrequency || 60;
+                document.getElementById('profitMargin').value = settings.profitMargin || 30;
+                document.getElementById('maxPrice').value = settings.maxPrice || 100;
+                document.getElementById('contentQuality').value = settings.contentQuality || 2;
+                document.getElementById('postFrequency').value = settings.postFrequency || 3;
+                document.getElementById('stockThreshold').value = settings.stockThreshold || 20;
+                document.getElementById('autoFinderToggle').checked = settings.autoFinder !== false;
+                document.getElementById('autoPostToggle').checked = settings.autoPost || false;
+                document.getElementById('autoRestockToggle').checked = settings.autoRestock || false;
+
+                // Update display values
+                updateValue('scanFrequency', settings.scanFrequency || 60);
+                updateValue('profitMargin', settings.profitMargin || 30);
+                updateValue('maxPrice', settings.maxPrice || 100);
+                updateContentQuality(settings.contentQuality || 2);
+                updateValue('postFrequency', settings.postFrequency || 3);
+                updateValue('stockThreshold', settings.stockThreshold || 20);
+            }
+        }
+
+        function showStatus(message, type) {
+            const statusEl = document.getElementById('statusMessage');
+            statusEl.textContent = message;
+            statusEl.className = 'mt-4 p-3 rounded-lg';
+            
+            if (type === 'success') {
+                statusEl.className += ' bg-green-900 text-green-300 border border-green-700';
+            } else if (type === 'warning') {
+                statusEl.className += ' bg-yellow-900 text-yellow-300 border border-yellow-700';
+            } else {
+                statusEl.className += ' bg-blue-900 text-blue-300 border border-blue-700';
+            }
+            
+            statusEl.classList.remove('hidden');
+            setTimeout(() => statusEl.classList.add('hidden'), 3000);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load saved settings
+            loadAdminSettings();
+    <!-- Admin Control Panel -->
+    <div class="admin-panel bg-dark-800 shadow-2xl border-l border-dark-700" id="adminPanel">
+        <div class="h-full overflow-y-auto p-6">
+            <!-- Header -->
+            <div class="flex justify-between items-center mb-6 pb-4 border-b border-dark-700">
+                <h2 class="text-2xl font-bold flex items-center gap-2">
+                    <i class="fas fa-shield-alt text-purple-400"></i>
+                    Admin Controls
+                </h2>
+                <button onclick="toggleAdminPanel()" class="text-gray-400 hover:text-white transition">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- AI Product Finder Controls -->
+            <div class="mb-6 p-4 bg-dark-750 rounded-lg border border-dark-600">
+                <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                    <i class="fas fa-search text-blue-400"></i>
+                    AI Product Finder
+                </h3>
+                
+                <div class="space-y-4">
+                    <div class="slider-container">
+                        <label class="text-sm text-gray-300 mb-2 block">Scan Frequency (minutes)</label>
+                        <input type="range" min="15" max="180" value="60" class="slider" id="scanFrequency" oninput="updateValue('scanFrequency', this.value)">
+                        <div class="flex justify-between text-xs text-gray-400 mt-1">
+                            <span>15 min</span>
+                            <span id="scanFrequencyValue" class="text-blue-400 font-semibold">60 min</span>
+                            <span>180 min</span>
+                        </div>
+                    </div>
+
+                    <div class="slider-container">
+                        <label class="text-sm text-gray-300 mb-2 block">Min Profit Margin (%)</label>
+                        <input type="range" min="10" max="50" value="30" class="slider" id="profitMargin" oninput="updateValue('profitMargin', this.value)">
+                        <div class="flex justify-between text-xs text-gray-400 mt-1">
+                            <span>10%</span>
+                            <span id="profitMarginValue" class="text-green-400 font-semibold">30%</span>
+                            <span>50%</span>
+                        </div>
+                    </div>
+
+                    <div class="slider-container">
+                        <label class="text-sm text-gray-300 mb-2 block">Max Product Price ($)</label>
+                        <input type="range" min="10" max="200" value="100" class="slider" id="maxPrice" oninput="updateValue('maxPrice', this.value)">
+                        <div class="flex justify-between text-xs text-gray-400 mt-1">
+                            <span>$10</span>
+                            <span id="maxPriceValue" class="text-yellow-400 font-semibold">$100</span>
+                            <span>$200</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between p-3 bg-dark-700 rounded">
+                        <span class="text-sm">Enable Auto-Finder</span>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" id="autoFinderToggle" class="sr-only peer" checked onchange="toggleAutoFinder(this.checked)">
+                            <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Marketing Controls -->
+            <div class="mb-6 p-4 bg-dark-750 rounded-lg border border-dark-600">
+                <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                    <i class="fas fa-bullhorn text-green-400"></i>
+                    AI Marketing
+                </h3>
+                
+                <div class="space-y-4">
+                    <div class="slider-container">
+                        <label class="text-sm text-gray-300 mb-2 block">Content Quality</label>
+                        <input type="range" min="1" max="3" value="2" class="slider" id="contentQuality" oninput="updateContentQuality(this.value)">
+                        <div class="flex justify-between text-xs text-gray-400 mt-1">
+                            <span>Fast</span>
+                            <span id="contentQualityValue" class="text-purple-400 font-semibold">Balanced</span>
+                            <span>Premium</span>
+                        </div>
+                    </div>
+
+                    <div class="slider-container">
+                        <label class="text-sm text-gray-300 mb-2 block">Post Frequency (per day)</label>
+                        <input type="range" min="1" max="10" value="3" class="slider" id="postFrequency" oninput="updateValue('postFrequency', this.value)">
+                        <div class="flex justify-between text-xs text-gray-400 mt-1">
+                            <span>1</span>
+                            <span id="postFrequencyValue" class="text-blue-400 font-semibold">3</span>
+                            <span>10</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between p-3 bg-dark-700 rounded">
+                        <span class="text-sm">Auto-Post to Social</span>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" id="autoPostToggle" class="sr-only peer" onchange="toggleAutoPost(this.checked)">
+                            <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inventory AI Controls -->
+            <div class="mb-6 p-4 bg-dark-750 rounded-lg border border-dark-600">
+                <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                    <i class="fas fa-boxes text-yellow-400"></i>
+                    Inventory AI
+                </h3>
+                
+                <div class="space-y-4">
+                    <div class="slider-container">
+                        <label class="text-sm text-gray-300 mb-2 block">Stock Alert Threshold</label>
+                        <input type="range" min="5" max="50" value="20" class="slider" id="stockThreshold" oninput="updateValue('stockThreshold', this.value)">
+                        <div class="flex justify-between text-xs text-gray-400 mt-1">
+                            <span>5</span>
+                            <span id="stockThresholdValue" class="text-orange-400 font-semibold">20</span>
+                            <span>50</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between p-3 bg-dark-700 rounded">
+                        <span class="text-sm">Auto-Restock</span>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" id="autoRestockToggle" class="sr-only peer" onchange="toggleAutoRestock(this.checked)">
+                            <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save Button -->
+            <button onclick="saveAdminSettings()" class="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 rounded-lg font-semibold transition flex items-center justify-center gap-2">
+                <i class="fas fa-save"></i>
+                Save Settings
+            </button>
+
+            <!-- Status Messages -->
+            <div id="statusMessage" class="mt-4 p-3 rounded-lg hidden"></div>
+        </div>
+    </div>
+
+    <!--    </div>
         </div>
     </footer>
+
+    <!-- Chart Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate progress bars when they come into view
+            const progressBar = document.querySelectorAll('.progress-bar');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.width = entry.target.getAttribute('style').split(':')[1];
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            progressBar.forEach(bar => {
+                observer.observe(bar);
+            });
+            
+            // Add hover effect to stat cards
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.classList.add('pulse-glow');
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.classList.remove('pulse-glow');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
