@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Pricing - AI Dropshipping Automation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .pricing-card:hover { transform: translateY(-10px); }
+        .popular { border: 2px solid #3b82f6; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto px-4 py-12">
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <h1 class="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                AI Dropshipping API Pricing
+            </h1>
+            <p class="text-xl text-gray-400">Choose the plan that fits your business needs</p>
+            
+            <!-- Billing Period Toggle -->
+            <div class="mt-8 inline-flex bg-gray-800 rounded-lg p-1">
+                <button onclick="showBilling('biweekly')" id="btn-biweekly" class="px-6 py-2 rounded-lg bg-blue-600 transition">Bi-Weekly</button>
+                <button onclick="showBilling('monthly')" id="btn-monthly" class="px-6 py-2 rounded-lg transition">Monthly</button>
+                <button onclick="showBilling('yearly')" id="btn-yearly" class="px-6 py-2 rounded-lg transition">
+                    Yearly <span class="text-green-400 text-sm">Save 20%</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <!-- Starter Plan -->
+            <div class="pricing-card bg-gray-800 rounded-2xl p-8 transition-all duration-300 border border-gray-700">
+                <h3 class="text-2xl font-bold mb-2">Starter</h3>
+                <div class="mb-6">
+                    <span class="text-4xl font-bold biweekly-price">$19.99</span>
+                    <span class="text-4xl font-bold monthly-price hidden">$39.99</span>
+                    <span class="text-4xl font-bold yearly-price hidden">$399.99</span>
+                    <span class="text-gray-400 ml-2">
+                        <span class="biweekly-period">/2 weeks</span>
+                        <span class="monthly-period hidden">/month</span>
+                        <span class="yearly-period hidden">/year</span>
+                    </span>
+                </div>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-1"></i> 100 products per day</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-1"></i> Basic AI (GPT-3.5)</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-1"></i> 5 campaigns/month</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-1"></i> Email support</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-1"></i> API access</li>
+                </ul>
+                <button onclick="selectPlan('starter')" class="w-full py-3 bg-blue-600 hover:bg-blue-500 rounded-lg font-semibold transition">
+                    Get Started
+                </button>
+            </div>
+
+            <!-- Pro Plan (Popular) -->
+            <div class="pricing-card bg-gray-800 rounded-2xl p-8 transition-all duration-300 border-2 border-blue-500 relative">
+                <div class="absolute top-0 right-0 bg-blue-500 text-white px-4 py-1 rounded-bl-lg rounded-tr-lg text-sm font-semibold">
+                    POPULAR
+                </div>
+                <h3 class="text-2xl font-bold mb-2">Pro</h3>
+                <div class="mb-6">
+                    <span class="text-4xl font-bold biweekly-price">$49.99</span>
+                    <span class="text-4xl font-bold monthly-price hidden">$99.99</span>
+                    <span class="text-4xl font-bold yearly-price hidden">$999.99</span>
+                    <span class="text-gray-400 ml-2">
+                        <span class="biweekly-period">/2 weeks</span>
+                        <span class="monthly-period hidden">/month</span>
+                        <span class="yearly-period hidden">/year</span>
+                    </span>
+                </div>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-1"></i> 500 products per day</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-1"></i> Advanced AI (GPT-4)</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-1"></i> 25 campaigns/month</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-1"></i> Priority support</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-1"></i> Advanced analytics</li>
+                </ul>
+                <button onclick="selectPlan('pro')" class="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 rounded-lg font-semibold transition">
+                    Get Started
+                </button>
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="pricing-card bg-gray-800 rounded-2xl p-8 transition-all duration-300 border border-gray-700">
+                <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
+                <div class="mb-6">
+                    <span class="text-4xl font-bold biweekly-price">$99.99</span>
+                    <span class="text-4xl font-bold monthly-price hidden">$199.99</span>
+                    <span class="text-4xl font-bold yearly-price hidden">$1,999.99</span>
+                    <span class="text-gray-400 ml-2">
+                        <span class="biweekly-period">/2 weeks</span>
+                        <span class="monthly-period hidden">/month</span>
+                        <span class="yearly-period hidden">/year</span>
+                    </span>
+                </div>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-1"></i> Unlimited products</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-1"></i> Premium AI (GPT-4 + Claude)</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-1"></i> Unlimited campaigns</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-1"></i> Dedicated support</li>
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-green-400 mt-1"></i> Custom integrations</li>
+                </ul>
+                <button onclick="selectPlan('enterprise')" class="w-full py-3 bg-purple-600 hover:bg-purple-500 rounded-lg font-semibold transition">
+                    Get Started
+                </button>
+            </div>
+        </div>
+
+        <!-- Features Comparison -->
+        <div class="mt-20 max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-8">Feature Comparison</h2>
+            <div class="bg-gray-800 rounded-lg overflow-hidden">
+                <table class="w-full">
+                    <thead class="bg-gray-700">
+                        <tr>
+                            <th class="text-left p-4">Feature</th>
+                            <th class="text-center p-4">Starter</th>
+                            <th class="text-center p-4">Pro</th>
+                            <th class="text-center p-4">Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-700">
+                        <tr>
+                            <td class="p-4">Products per day</td>
+                            <td class="text-center p-4">100</td>
+                            <td class="text-center p-4">500</td>
+                            <td class="text-center p-4">Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">AI Model</td>
+                            <td class="text-center p-4">GPT-3.5</td>
+                            <td class="text-center p-4">GPT-4</td>
+                            <td class="text-center p-4">GPT-4 + Claude</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">Marketing campaigns/month</td>
+                            <td class="text-center p-4">5</td>
+                            <td class="text-center p-4">25</td>
+                            <td class="text-center p-4">Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">API rate limit</td>
+                            <td class="text-center p-4">100/hour</td>
+                            <td class="text-center p-4">500/hour</td>
+                            <td class="text-center p-4">10,000/hour</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">Support</td>
+                            <td class="text-center p-4">Email</td>
+                            <td class="text-center p-4">Priority</td>
+                            <td class="text-center p-4">Dedicated</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentBilling = 'biweekly';
+        
+        function showBilling(period) {
+            currentBilling = period;
+            
+            // Update button states
+            ['biweekly', 'monthly', 'yearly'].forEach(p => {
+                const btn = document.getElementById(`btn-${p}`);
+                if (p === period) {
+                    btn.classList.add('bg-blue-600');
+                } else {
+                    btn.classList.remove('bg-blue-600');
+                }
+            });
+            
+            // Show/hide prices
+            ['biweekly', 'monthly', 'yearly'].forEach(p => {
+                document.querySelectorAll(`.${p}-price, .${p}-period`).forEach(el => {
+                    el.classList.toggle('hidden', p !== period);
+                });
+            });
+        }
+        
+        function selectPlan(tier) {
+            const plan = `${tier}_${currentBilling}`;
+            alert(`Selected: ${tier} (${currentBilling})\n\nRedirecting to checkout...\n\nPlan ID: ${plan}`);
+            // In production, redirect to Stripe checkout or open payment modal
+            // window.location.href = `/checkout?plan=${plan}`;
+        }
+    </script>
+</body>
+</html>

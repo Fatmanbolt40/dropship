@@ -10,6 +10,8 @@ from core.config import settings
 from core.database import engine, Base
 from api import products, suppliers, trends, marketing, analytics, automation
 from api.admin import admin_router
+from api.subscriptions import subscription_router
+from middleware.rate_limit import RateLimitMiddleware
 
 # Create tables
 try:
@@ -32,11 +34,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Rate Limiting
+app.add_middleware(RateLimitMiddleware)
+
 # Include routers
 app.include_router(products.router, prefix="/api/products", tags=["Products"])
 app.include_router(suppliers.router, prefix="/api/suppliers", tags=["Suppliers"])
 app.include_router(trends.router, prefix="/api/trends", tags=["Trends"])
-app.include_router(marketing.router, prefix="/api/marketing", tags=["Marketing"])
+app.include_router(marketing.router, prefix="/ap
+app.include_router(subscription_router, tags=["Subscriptions"])i/marketing", tags=["Marketing"])
 app.include_router(analytics.router, prefix="/api/analytics", tags=["Analytics"])
 app.include_router(automation.router, prefix="/api/automation", tags=["Automation"])
 app.include_router(admin_router, tags=["Admin"])
