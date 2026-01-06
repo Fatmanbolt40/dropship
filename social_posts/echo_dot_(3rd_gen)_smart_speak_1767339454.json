@@ -1,0 +1,29 @@
+{
+  "product_name": "Echo Dot (3rd Gen) Smart speaker with Alexa",
+  "created_at": "2026-01-02T02:37:34.182110",
+  "platforms": {
+    "facebook": {
+      "text": "\u2b50 Echo Dot (3rd Gen) Smart speaker with Alexa\n\nOur customers LOVE this! \u2b50\u2b50\u2b50\u2b50\u2b50\n\nSpecial price: $72.57\nFast shipping included!\n\n\ud83d\udc49 https://locomotively-needy-crysta.ngrok-free.dev/store_with_checkout.html\n\n#bestseller #trending",
+      "image_url": "https://m.media-amazon.com/images/I/B07XJ8C8F5.jpg",
+      "link": "https://locomotively-needy-crysta.ngrok-free.dev/store_with_checkout.html",
+      "status": "ready"
+    },
+    "instagram": {
+      "caption": "\u2728 New arrival alert! \u2728\n\nEcho Dot (3rd Gen) Smart speaker with Alexa\n\ud83d\udcb0 $72.57\n\nLink in bio! \ud83d\udd17\n\n#shopping #deals #newproduct #musthave #sale #trending #shoplocal #onlineshopping #dealoftheday #savings",
+      "image_url": "https://m.media-amazon.com/images/I/B07XJ8C8F5.jpg",
+      "bio_link": "https://locomotively-needy-crysta.ngrok-free.dev/store_with_checkout.html",
+      "status": "ready"
+    },
+    "tiktok": {
+      "script": {
+        "hook": "Y'all asked for product recommendations... here's one!",
+        "content": "Echo Dot (3rd Gen) Smart speaker with Alexa is AMAZING and it's only $72.57 right now!",
+        "cta": "Check my bio for the link! You won't regret it! \ud83d\udcaf",
+        "hashtags": "#productreview #shopping #recommendation #musthave #deals"
+      },
+      "product_image": "https://m.media-amazon.com/images/I/B07XJ8C8F5.jpg",
+      "bio_link": "https://locomotively-needy-crysta.ngrok-free.dev/store_with_checkout.html",
+      "status": "ready"
+    }
+  }
+}

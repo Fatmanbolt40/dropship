@@ -1,0 +1,29 @@
+{
+  "product_name": "Fire TV Stick 4K streaming device",
+  "created_at": "2026-01-02T02:37:32.181403",
+  "platforms": {
+    "facebook": {
+      "text": "\ud83d\udd25 JUST IN! Fire TV Stick 4K streaming device for only $123.56!\n\nUsually $49.99 elsewhere! Grab yours now before they're gone!\n\n\ud83d\udc49 Shop: https://locomotively-needy-crysta.ngrok-free.dev/store_with_checkout.html\n\n#deals #shopping #sale",
+      "image_url": "https://m.media-amazon.com/images/I/B09JQMJHXY.jpg",
+      "link": "https://locomotively-needy-crysta.ngrok-free.dev/store_with_checkout.html",
+      "status": "ready"
+    },
+    "instagram": {
+      "caption": "\u2728 New arrival alert! \u2728\n\nFire TV Stick 4K streaming device\n\ud83d\udcb0 $123.56\n\nLink in bio! \ud83d\udd17\n\n#shopping #deals #newproduct #musthave #sale #trending #shoplocal #onlineshopping #dealoftheday #savings",
+      "image_url": "https://m.media-amazon.com/images/I/B09JQMJHXY.jpg",
+      "bio_link": "https://locomotively-needy-crysta.ngrok-free.dev/store_with_checkout.html",
+      "status": "ready"
+    },
+    "tiktok": {
+      "script": {
+        "hook": "Y'all asked for product recommendations... here's one!",
+        "content": "Fire TV Stick 4K streaming device is AMAZING and it's only $123.56 right now!",
+        "cta": "Check my bio for the link! You won't regret it! \ud83d\udcaf",
+        "hashtags": "#productreview #shopping #recommendation #musthave #deals"
+      },
+      "product_image": "https://m.media-amazon.com/images/I/B09JQMJHXY.jpg",
+      "bio_link": "https://locomotively-needy-crysta.ngrok-free.dev/store_with_checkout.html",
+      "status": "ready"
+    }
+  }
+}

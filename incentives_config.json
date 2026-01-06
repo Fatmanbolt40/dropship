@@ -1,0 +1,187 @@
+{
+  "amazon_new_seller_incentives": {
+    "total_potential_value": 50000,
+    "enrollment_date": null,
+    "brand_registry_enrolled": false,
+    
+    "brand_registry_goals": {
+      "enroll_in_brand_registry": {
+        "status": "pending",
+        "deadline_days": 180,
+        "value": 0,
+        "required_for": ["10% back on sales", "Vine credit", "A+ Content", "Sponsored Brands"]
+      },
+      "branded_sales_bonus": {
+        "status": "pending",
+        "tier_1": {
+          "amount": 50000,
+          "bonus_rate": 0.10,
+          "max_bonus": 5000,
+          "earned": 0
+        },
+        "tier_2": {
+          "amount": 950000,
+          "bonus_rate": 0.05,
+          "max_bonus": 47500,
+          "earned": 0
+        },
+        "total_earned": 0,
+        "sales_tracked": 0
+      },
+      "vine_credit": {
+        "status": "pending",
+        "amount": 200,
+        "deadline_days": 90,
+        "requirement": "Enroll product in Vine within 90 days of Brand Registry"
+      }
+    },
+    
+    "fba_goals": {
+      "amazon_partnered_carrier": {
+        "status": "pending",
+        "credit": 100,
+        "deadline_days": 90,
+        "requirement": "Send first shipment using Amazon Partnered Carrier"
+      },
+      "amazon_global_logistics": {
+        "status": "pending",
+        "credit": 200,
+        "deadline_days": 90,
+        "requirement": "Use Amazon Global Logistics for shipment"
+      },
+      "fba_new_selection": {
+        "status": "pending",
+        "benefits": ["free_storage", "free_liquidations", "free_returns"],
+        "deadline_days": 90,
+        "requirement": "Send new-to-FBA products within 90 days"
+      },
+      "inbound_placement_credit": {
+        "status": "pending",
+        "credit": 400,
+        "deadline_days": 90,
+        "requirement": "Send inventory to fulfillment center"
+      },
+      "low_inventory_exemption": {
+        "status": "auto_enrolled",
+        "duration_days": 365,
+        "requirement": "Automatic after first FBA shipment"
+      },
+      "storage_utilization_exemption": {
+        "status": "auto_enrolled",
+        "duration_days": 365,
+        "requirement": "Automatic after first FBA shipment"
+      }
+    },
+    
+    "mcf_goals": {
+      "multi_channel_fulfillment": {
+        "status": "pending",
+        "discount": 0.10,
+        "units": 100,
+        "units_used": 0,
+        "deadline_days": 90
+      }
+    },
+    
+    "advertising_goals": {
+      "sponsored_products_tier_1": {
+        "status": "pending",
+        "spend_requirement": 50,
+        "credit": 50,
+        "deadline_days": 30,
+        "campaign_created": false
+      },
+      "sponsored_products_tier_2": {
+        "status": "pending",
+        "spend_requirement": 200,
+        "credit": 200,
+        "deadline_days": 30,
+        "campaign_created": false
+      },
+      "sponsored_products_tier_3": {
+        "status": "pending",
+        "spend_requirement": 1000,
+        "credit": 1000,
+        "deadline_days": 30,
+        "campaign_created": false
+      },
+      "coupons": {
+        "status": "pending",
+        "credit": 50,
+        "deadline_days": 90,
+        "requirement": "Create first coupon within 90 days"
+      }
+    },
+    
+    "required_services": {
+      "automate_pricing": {
+        "enabled": false,
+        "priority": "high",
+        "deadline_days": 90
+      },
+      "sponsored_products": {
+        "enabled": false,
+        "priority": "high",
+        "deadline_days": 90
+      },
+      "fulfillment_by_amazon": {
+        "enabled": false,
+        "priority": "critical",
+        "deadline_days": 90
+      },
+      "multi_channel_fulfillment": {
+        "enabled": false,
+        "priority": "medium",
+        "deadline_days": 90
+      },
+      "lightning_deals": {
+        "enabled": false,
+        "priority": "medium",
+        "deadline_days": 90
+      },
+      "amazon_coupons": {
+        "enabled": false,
+        "priority": "high",
+        "deadline_days": 90
+      },
+      "sponsored_brands": {
+        "enabled": false,
+        "priority": "high",
+        "requires_brand_registry": true,
+        "deadline_days": 90
+      },
+      "amazon_vine": {
+        "enabled": false,
+        "priority": "high",
+        "requires_brand_registry": true,
+        "deadline_days": 90
+      },
+      "a_plus_content": {
+        "enabled": false,
+        "priority": "medium",
+        "requires_brand_registry": true,
+        "deadline_days": 90
+      }
+    },
+    
+    "ai_automation_rules": {
+      "prioritize_brand_registry_eligible": true,
+      "auto_enroll_fba_new_selection": true,
+      "auto_create_sponsored_products": true,
+      "auto_create_coupons": true,
+      "auto_enable_dynamic_pricing": true,
+      "target_first_90_days_completion": true,
+      "track_branded_sales_for_bonus": true,
+      "optimize_for_max_incentives": true
+    },
+    
+    "milestones": {
+      "day_1": ["Professional seller account", "List first product", "Enable FBA"],
+      "week_1": ["Create Sponsored Products campaign", "Set up Automate Pricing", "Apply for Brand Registry"],
+      "week_2": ["Send first FBA shipment", "Create first Coupon", "Enroll in FBA New Selection"],
+      "month_1": ["Reach $1000 in sales", "Spend $50 in ads", "Create 10 listings"],
+      "month_2": ["Enroll product in Vine", "Create Sponsored Brands", "Add A+ Content"],
+      "day_90": ["Complete all required services", "Maximize incentive capture", "Review performance"]
+    }
+  }
+}

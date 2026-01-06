@@ -1,0 +1,29 @@
+{
+  "product_name": "Wyze Cam v3 Security Camera Indoor/Outdoor",
+  "created_at": "2026-01-02T02:37:30.180887",
+  "platforms": {
+    "facebook": {
+      "text": "\ud83d\udd25 JUST IN! Wyze Cam v3 Security Camera Indoor/Outdoor for only $91.42!\n\nUsually $35.98 elsewhere! Grab yours now before they're gone!\n\n\ud83d\udc49 Shop: https://locomotively-needy-crysta.ngrok-free.dev/store_with_checkout.html\n\n#deals #shopping #sale",
+      "image_url": "https://m.media-amazon.com/images/I/B07ZPKN6YR.jpg",
+      "link": "https://locomotively-needy-crysta.ngrok-free.dev/store_with_checkout.html",
+      "status": "ready"
+    },
+    "instagram": {
+      "caption": "\ud83d\udc95 You NEED this! \ud83d\udc95\n\nWyze Cam v3 Security Camera Indoor/Outdoor\n\nSpecial price: $91.42\n\nTap link in bio \ud83d\udc46\n\n#shopping #style #musthave #deals #sale #shopnow #onlineshop #trendingproducts",
+      "image_url": "https://m.media-amazon.com/images/I/B07ZPKN6YR.jpg",
+      "bio_link": "https://locomotively-needy-crysta.ngrok-free.dev/store_with_checkout.html",
+      "status": "ready"
+    },
+    "tiktok": {
+      "script": {
+        "hook": "Y'all asked for product recommendations... here's one!",
+        "content": "Wyze Cam v3 Security Camera Indoor/Outdoor is AMAZING and it's only $91.42 right now!",
+        "cta": "Check my bio for the link! You won't regret it! \ud83d\udcaf",
+        "hashtags": "#productreview #shopping #recommendation #musthave #deals"
+      },
+      "product_image": "https://m.media-amazon.com/images/I/B07ZPKN6YR.jpg",
+      "bio_link": "https://locomotively-needy-crysta.ngrok-free.dev/store_with_checkout.html",
+      "status": "ready"
+    }
+  }
+}
