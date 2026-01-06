@@ -76,14 +76,6 @@
     </style>
 </head>
 <body class="bg-gray-900 text-white">
-    <!-- Admin Button (Fixed Position) -->
-    <div class="fixed top-4 right-4 z-50">
-        <button onclick="toggleAdminPanel()" class="px-4 py-2 bg-purple-600 hover:bg-purple-500 rounded-lg flex items-center gap-2 transition shadow-lg">
-            <i class="fas fa-cog"></i>
-            <span>Admin Controls</span>
-        </button>
-    </div>
-
     <!-- Admin Panel Overlay -->
     <div class="admin-overlay" id="adminOverlay" onclick="toggleAdminPanel()"></div>
 
@@ -502,6 +494,14 @@
         // Load settings on page load
         document.addEventListener('DOMContentLoaded', function() {
             loadAdminSettings();
+            
+            // Keyboard shortcut: Shift + Alt + O
+            document.addEventListener('keydown', function(e) {
+                if (e.shiftKey && e.altKey && e.key.toLowerCase() === 'o') {
+                    e.preventDefault();
+                    toggleAdminPanel();
+                }
+            });
         });
 
         // Pricing Page Functions
