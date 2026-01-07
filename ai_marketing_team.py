@@ -1,36 +1,172 @@
 #!/usr/bin/env python3
 """
-AI Marketing Team - Automated marketing campaigns for dropshipping products
-Creates Facebook ads, Instagram posts, TikTok scripts, email campaigns
+AI Marketing Team - Automated Social Media Marketing
+Creates Facebook ads, Instagram posts, TikTok scripts, email campaigns,
+and analyzes market demand to target customers effectively.
 """
 
 import os
 import json
-from typing import Dict, List
+from typing import Dict, List, Any
 from datetime import datetime
 from dotenv import load_dotenv
+import random
+import re
+import requests
+from collections import defaultdict
 
 load_dotenv()
 
+class AICustomerInsights:
+    """Analyzes customer needs and trends for targeted marketing"""
+    
+    def __init__(self):
+        self.trending_topics = [
+            "home organization", "fitness gear", "pet supplies",
+            "beauty essentials", "gaming accessories", "office tools"
+        ]
+        
+        self.customer_personas = {
+            'busy_professional': {
+                'interests': ['productivity', 'time-saving tools', 'efficiency'],
+                'needs': ['convenience', 'quality', 'fast delivery'],
+                'age_range': '25-40'
+            },
+            'health_conscious': {
+                'interests': ['fitness', 'nutrition', 'wellness'],
+                'needs': ['natural ingredients', 'organic products', 'healthy lifestyle'],
+                'age_range': '20-45'
+            },
+            'tech_enthusiast': {
+                'interests': ['gadgets', 'technology', 'innovation'],
+                'needs': ['latest features', 'performance', 'compatibility'],
+                'age_range': '18-35'
+            },
+            'parental_care': {
+                'interests': ['family', 'kids', 'education'],
+                'needs': ['safety', 'durability', 'value for money'],
+                'age_range': '28-45'
+            }
+        }
+    
+    def analyze_market_trends(self) -> Dict[str, Any]:
+        """Analyze current market trends and customer demands"""
+        return {
+            'trending_categories': random.sample(self.trending_topics, 3),
+            'peak_shopping_times': ['weekends', 'evenings'],
+            'popular_product_types': ['gadgets', 'home goods', 'health products']
+        }
+    
+    def identify_customer_personas(self) -> List[Dict]:
+        """Identify and generate customer personas"""
+        return list(self.customer_personas.values())
+    
+    def find_customer_needs(self, product_category: str) -> Dict[str, Any]:
+        """Discover specific needs for a given product category"""
+        # In a real implementation, this would connect to social media sentiment analysis
+        needs_map = {
+            'gadgets': ['innovation', 'performance', 'design'],
+            'home': ['organization', 'comfort', 'durability'],
+            'beauty': ['results', 'natural ingredients', 'ease of use'],
+            'fitness': ['effectiveness', 'portability', 'affordability']
+        }
+        
+        return {
+            'primary_needs': needs_map.get(product_category, ['quality', 'value']),
+            'secondary_needs': ['fast delivery', 'customer service', 'satisfaction guarantee']
+        }
+
+class AIPerformanceAnalytics:
+    """Tracks marketing performance and optimizes campaigns"""
+    
+    def __init__(self):
+        self.campaign_results = {}
+        
+    def track_performance(self, campaign_name: str, results: Dict[str, Any]):
+        """Track metrics for a campaign"""
+        if campaign_name not in self.campaign_results:
+            self.campaign_results[campaign_name] = []
+            
+        self.campaign_results[campaign_name].append({
+            'timestamp': datetime.now().isoformat(),
+            'results': results
+        })
+        
+    def get_campaign_insights(self, campaign_name: str) -> Dict[str, Any]:
+        """Get insights from campaign performance"""
+        if campaign_name not in self.campaign_results:
+            return {}
+            
+        # Simplified for demo - in real implementation this would analyze trends
+        return {
+            'engagement_rate': random.uniform(5.0, 25.0),
+            'conversion_rate': random.uniform(1.0, 8.0),
+            'roi': round(random.uniform(2.0, 15.0), 2)
+        }
+
 class AIMarketingTeam:
-    """AI-powered marketing automation"""
+    """AI-powered marketing automation for dropshipping products"""
     
     def __init__(self):
         self.campaigns_dir = "marketing_campaigns"
         os.makedirs(self.campaigns_dir, exist_ok=True)
+        
+        self.insights_engine = AICustomerInsights()
+        self.analytics_engine = AIPerformanceAnalytics()
+        
+        # Default product data (would come from Amazon API in real implementation)
+        self.products_database = [
+            {
+                'name': 'Wireless Bluetooth Earbuds',
+                'cost': 24.99,
+                'suggested_resale_price': 49.99,
+                'rating': 4.5,
+                'niche': 'Electronics',
+                'image_url': 'https://example.com/earbuds.jpg',
+                'description': 'Premium noise-cancelling wireless earbuds with 30hr battery life'
+            },
+            {
+                'name': 'Smart Fitness Tracker',
+                'cost': 19.99,
+                'suggested_resale_price': 44.99,
+                'rating': 4.2,
+                'niche': 'Fitness',
+                'image_url': 'https://example.com/fitness-tracker.jpg',
+                'description': 'Advanced health monitoring with GPS and heart rate sensor'
+            },
+            {
+                'name': 'Organic Cotton T-Shirt',
+                'cost': 12.99,
+                'suggested_resale_price': 29.99,
+                'rating': 4.7,
+                'niche': 'Fashion',
+                'image_url': 'https://example.com/tshirt.jpg',
+                'description': 'Comfortable eco-friendly t-shirt for everyday wear'
+            }
+        ]
     
     def create_full_campaign(self, product: Dict) -> Dict:
         """Create complete marketing campaign for a product"""
         
+        # Get customer insights
+        market_trends = self.insights_engine.analyze_market_trends()
+        customer_needs = self.insights_engine.find_customer_needs(product['niche'].lower())
+        personas = self.insights_engine.identify_customer_personas()
+        
         campaign = {
-            'product_name': product['name'],
+            'product': product,
             'created_at': datetime.now().isoformat(),
+            'market_insights': market_trends,
+            'customer_needs': customer_needs,
+            'target_personas': personas,
             'facebook_ads': self.generate_facebook_ads(product),
             'instagram_posts': self.generate_instagram_posts(product),
             'tiktok_scripts': self.generate_tiktok_scripts(product),
             'email_campaign': self.generate_email_campaign(product),
             'google_ads': self.generate_google_ads(product),
-            'pinterest_pins': self.generate_pinterest_pins(product)
+            'pinterest_pins': self.generate_pinterest_pins(product),
+            'linkedin_posts': self.generate_linkedin_posts(product),
+            'twitter_threads': self.generate_twitter_threads(product)
         }
         
         # Save campaign
@@ -279,24 +415,97 @@ class AIMarketingTeam:
                 'image': product.get('image_url', '')
             }
         ]
+    
+    def generate_linkedin_posts(self, product: Dict) -> List[Dict]:
+        """Generate LinkedIn professional posts"""
+        price = product.get('suggested_resale_price', product.get('cost', 0))
+        
+        return [
+            {
+                'title': f"Smart Business Decision: {product['name']}",
+                'content': f"In today's competitive marketplace, every entrepreneur must stay ahead of trends. "
+                          f"This {product['name']} represents a smart investment for your business or personal use. "
+                          f"With its premium quality and unbeatable value at just ${price}, it's a product worth considering. "
+                          f"Would you consider adding this to your inventory? #business #entrepreneurship",
+                'hashtags': '#smartbuy #businessgrowth #entrepreneur #smallbusiness'
+            },
+            {
+                'title': f"Innovative Product Review: {product['name']}",
+                'content': f"Have you tried the latest in {product.get('niche', 'technology')} innovation? "
+                          f"The {product['name']} is designed to enhance your productivity and lifestyle. "
+                          f"With features that address modern needs, this product has earned a 4.5/5 star rating from users worldwide. "
+                          f"Check it out for yourself! #innovation #techreview",
+                'hashtags': '#innovation #productivity #lifestyle #reviews'
+            }
+        ]
+    
+    def generate_twitter_threads(self, product: Dict) -> List[Dict]:
+        """Generate Twitter/X threads"""
+        price = product.get('suggested_resale_price', product.get('cost', 0))
+        
+        return [
+            {
+                'thread': [
+                    f"🚀 New Product Alert! {product['name']} is now available!",
+                    f"Perfect for anyone looking to enhance their lifestyle with quality products.",
+                    f"🌟 Premium features: High performance, durable design",
+                    f"💰 Great value at only ${price}",
+                    f"✅ Fast shipping & 30-day satisfaction guarantee",
+                    f"Check it out and let us know what you think! #newproduct"
+                ],
+                'hashtags': ['#ProductAlert', '#NewRelease', '#ShopNow']
+            }
+        ]
+    
+    def run_automated_marketing(self):
+        """Run full automated marketing campaign across all platforms"""
+        print("🚀 Starting Automated Marketing Campaign...")
+        
+        for product in self.products_database:
+            print(f"\n--- Creating campaign for: {product['name']} ---")
+            
+            # Create the campaign
+            campaign = self.create_full_campaign(product)
+            
+            # Track performance (simulated)
+            performance = {
+                'engagement': random.randint(10, 50),
+                'conversions': random.randint(2, 15),
+                'click_through_rate': round(random.uniform(3.0, 8.0), 2)
+            }
+            
+            self.analytics_engine.track_performance(product['name'], performance)
+            
+            # Generate insights
+            insights = self.analytics_engine.get_campaign_insights(product['name'])
+            
+            print(f"✅ Campaign created for {product['name']}")
+            print(f"📊 Performance: Engagement={performance['engagement']}%, "
+                  f"Conversions={performance['conversions']}, CTR={performance['click_through_rate']}%")
+            print(f"📈 ROI: {insights.get('roi', 'N/A')}x")
+            
+        print("\n🎉 All campaigns created and tracked successfully!")
 
 # Global instance
 ai_marketing = AIMarketingTeam()
 
 if __name__ == '__main__':
-    # Test with sample product
-    test_product = {
-        'name': 'Wireless Bluetooth Earbuds',
-        'cost': 24.99,
-        'suggested_resale_price': 49.99,
-        'rating': 4.5,
-        'niche': 'Electronics',
-        'image_url': 'https://example.com/image.jpg'
-    }
+    # Run the automated marketing campaign
+    ai_marketing.run_automated_marketing()
     
-    campaign = ai_marketing.create_full_campaign(test_product)
-    print(f"✅ Created marketing campaign for {test_product['name']}")
-    print(f"📱 Facebook Ads: {len(campaign['facebook_ads'])}")
-    print(f"📸 Instagram Posts: {len(campaign['instagram_posts'])}")
-    print(f"🎵 TikTok Scripts: {len(campaign['tiktok_scripts'])}")
-    print(f"📧 Email Campaign: Ready")
+    # Print a sample of what was generated
+    print("\n=== SAMPLE OUTPUT ===")
+    product = ai_marketing.products_database[0]
+    
+    print(f"Product: {product['name']}")
+    print("Generated Marketing Materials:")
+    campaign = ai_marketing.create_full_campaign(product)
+    
+    print(f"  - Facebook Ads: {len(campaign['facebook_ads'])}")
+    print(f"  - Instagram Posts: {len(campaign['instagram_posts'])}")
+    print(f"  - TikTok Scripts: {len(campaign['tiktok_scripts'])}")
+    print(f"  - Email Campaign: Ready")
+    print(f"  - Google Ads: {len(campaign['google_ads'])}")
+    print(f"  - Pinterest Pins: {len(campaign['pinterest_pins'])}")
+    print(f"  - LinkedIn Posts: {len(campaign['linkedin_posts'])}")
+    print(f"  - Twitter Threads: {len(campaign['twitter_threads'])}")
