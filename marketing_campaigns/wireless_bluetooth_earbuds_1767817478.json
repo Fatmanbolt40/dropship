@@ -1,0 +1,293 @@
+{
+  "product": {
+    "name": "Wireless Bluetooth Earbuds",
+    "cost": 24.99,
+    "suggested_resale_price": 49.99,
+    "rating": 4.5,
+    "niche": "Electronics",
+    "image_url": "https://example.com/earbuds.jpg",
+    "description": "Premium noise-cancelling wireless earbuds with 30hr battery life"
+  },
+  "created_at": "2026-01-07T15:24:38.905060",
+  "market_insights": {
+    "trending_categories": [
+      "beauty essentials",
+      "pet supplies",
+      "home organization"
+    ],
+    "peak_shopping_times": [
+      "weekends",
+      "evenings"
+    ],
+    "popular_product_types": [
+      "gadgets",
+      "home goods",
+      "health products"
+    ]
+  },
+  "customer_needs": {
+    "primary_needs": [
+      "quality",
+      "value"
+    ],
+    "secondary_needs": [
+      "fast delivery",
+      "customer service",
+      "satisfaction guarantee"
+    ]
+  },
+  "target_personas": [
+    {
+      "interests": [
+        "productivity",
+        "time-saving tools",
+        "efficiency"
+      ],
+      "needs": [
+        "convenience",
+        "quality",
+        "fast delivery"
+      ],
+      "age_range": "25-40"
+    },
+    {
+      "interests": [
+        "fitness",
+        "nutrition",
+        "wellness"
+      ],
+      "needs": [
+        "natural ingredients",
+        "organic products",
+        "healthy lifestyle"
+      ],
+      "age_range": "20-45"
+    },
+    {
+      "interests": [
+        "gadgets",
+        "technology",
+        "innovation"
+      ],
+      "needs": [
+        "latest features",
+        "performance",
+        "compatibility"
+      ],
+      "age_range": "18-35"
+    },
+    {
+      "interests": [
+        "family",
+        "kids",
+        "education"
+      ],
+      "needs": [
+        "safety",
+        "durability",
+        "value for money"
+      ],
+      "age_range": "28-45"
+    }
+  ],
+  "facebook_ads": [
+    {
+      "headline": "\ud83d\udd25 Wireless Bluetooth Earbuds - 50% OFF Today!",
+      "primary_text": "Don't miss out! Get your Wireless Bluetooth Earbuds at an amazing price. \u26a1 Fast shipping \u26a1 Premium quality \u26a1 Money-back guarantee. Limited stock available!",
+      "description": "Only $49.99 - Shop now before it's gone!",
+      "call_to_action": "Shop Now",
+      "image_suggestion": "https://example.com/earbuds.jpg",
+      "target_audience": {
+        "age": "18-45",
+        "interests": [
+          "Electronics",
+          "Online Shopping",
+          "Deals"
+        ],
+        "locations": "USA, Canada, UK, Australia"
+      }
+    },
+    {
+      "headline": "\u2b50 Premium Wireless Bluetooth Earbuds - Free Shipping",
+      "primary_text": "Transform your life with our top-rated Wireless Bluetooth Earbuds! \u2705 4.5\u2b50 rating \u2705 Thousands of happy customers \u2705 Fast & free delivery. Order yours today!",
+      "description": "Starting at just $49.99!",
+      "call_to_action": "Learn More",
+      "image_suggestion": "https://example.com/earbuds.jpg",
+      "target_audience": {
+        "age": "25-55",
+        "interests": [
+          "Electronics",
+          "Premium Products"
+        ],
+        "locations": "Worldwide"
+      }
+    },
+    {
+      "headline": "\ud83c\udf81 Perfect Gift: Wireless Bluetooth Earbuds",
+      "primary_text": "Looking for the perfect gift? Our Wireless Bluetooth Earbuds is loved by everyone! \ud83d\udc9d Gift-ready packaging \ud83d\udc9d Fast delivery \ud83d\udc9d Satisfaction guaranteed. Make someone's day special!",
+      "description": "Gift it for $49.99",
+      "call_to_action": "Buy Now",
+      "image_suggestion": "https://example.com/earbuds.jpg",
+      "target_audience": {
+        "age": "21-60",
+        "interests": [
+          "Gift Shopping",
+          "Electronics"
+        ],
+        "locations": "USA, Canada, UK"
+      }
+    }
+  ],
+  "instagram_posts": [
+    {
+      "caption": "\u2728 Just dropped: Wireless Bluetooth Earbuds! \u2728\n\n\ud83d\udd25 Trending NOW\n\u2b50 4.5/5 rating\n\ud83d\udcb0 Only $49.99\n\ud83d\ude9a Fast & free shipping\n\nTag someone who needs this! \ud83d\udc99\n\n#trending #musthave #shopnow #deals #shopping",
+      "image": "https://example.com/earbuds.jpg",
+      "hashtags": "#trending #musthave #electronics #shopnow #deals",
+      "post_type": "Feed Post"
+    },
+    {
+      "caption": "\ud83c\udfaf DEAL ALERT! \ud83c\udfaf\n\nWireless Bluetooth Earbuds at an INSANE price!\n\n\u2764\ufe0f Double tap if you want this!\n\ud83d\udcac Comment \"MINE\" for the link\n\ud83d\udd17 Link in bio\n\nHurry - limited stock! \u23f0",
+      "image": "https://example.com/earbuds.jpg",
+      "hashtags": "#sale #dealalert #limitedstock #electronics",
+      "post_type": "Story"
+    },
+    {
+      "caption": "\ud83c\udf1f Customer favorite! \ud83c\udf1f\n\nWhy everyone loves our Wireless Bluetooth Earbuds:\n\u2705 Premium quality\n\u2705 Affordable price ($49.99)\n\u2705 Fast shipping\n\u2705 Money-back guarantee\n\nJoin thousands of happy customers! \ud83d\udc99",
+      "image": "https://example.com/earbuds.jpg",
+      "hashtags": "#customerfavorite #5star #quality #shopsmall",
+      "post_type": "Reel"
+    }
+  ],
+  "tiktok_scripts": [
+    {
+      "hook": "POV: You just discovered the #Wireless everyone's talking about \ud83d\ude31",
+      "script": "Okay so I just got this Wireless Bluetooth Earbuds and I'm OBSESSED. Like seriously, for $49.99?? It's literally worth 3x that. Fast shipping, amazing quality, and it actually works! Link in bio before they sell out! \u26a1",
+      "duration": "15-30 seconds",
+      "sounds": [
+        "Trending audio",
+        "Upbeat music"
+      ],
+      "effects": [
+        "Fast cuts",
+        "Product close-ups",
+        "Before/after"
+      ],
+      "hashtags": "#tiktokmademebuyit #musthave #amazonfinds #viral"
+    },
+    {
+      "hook": "Things I bought that are actually worth it: Part 27",
+      "script": "Number 1: This Wireless Bluetooth Earbuds. I was skeptical but WOW. It's only $49.99 and it changed everything. 4.5 stars for a reason! You NEED this in your life. Trust me.",
+      "duration": "20-40 seconds",
+      "sounds": [
+        "Voiceover",
+        "Trending sound"
+      ],
+      "effects": [
+        "Text overlays",
+        "Product showcase"
+      ],
+      "hashtags": "#worthit #productsthatslay #amazonfavorites"
+    },
+    {
+      "hook": "Wait till you see what I got for under $100... \ud83d\ude0f",
+      "script": "So I ordered this Wireless Bluetooth Earbuds not expecting much... GUYS. This is a GAME CHANGER. Quality is insane, shipped fast, and it actually does what it says! Already ordering another one for my bestie! Link below \ud83d\udc47",
+      "duration": "30-45 seconds",
+      "sounds": [
+        "Unboxing music"
+      ],
+      "effects": [
+        "Unboxing footage",
+        "Reaction shots"
+      ],
+      "hashtags": "#unboxing #haul #shopwithme #dealoftheday"
+    }
+  ],
+  "email_campaign": {
+    "subject_lines": [
+      "\ud83d\udd25 JUST IN: Wireless Bluetooth Earbuds - Limited Stock!",
+      "You won't believe this Wireless Bluetooth Earbuds deal...",
+      "\u2b50 4.5 stars - See why everyone loves it!",
+      "Last chance: Wireless Bluetooth Earbuds at this price \ud83d\udc40"
+    ],
+    "email_body": "\n<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;\">\n    <h1 style=\"color: #333;\">\ud83c\udf89 Introducing: Wireless Bluetooth Earbuds</h1>\n    \n    <img src=\"https://example.com/earbuds.jpg\" style=\"width: 100%; max-width: 500px;\" />\n    \n    <h2 style=\"color: #FF6B6B;\">Only $49.99 - Limited Time!</h2>\n    \n    <p style=\"font-size: 16px; line-height: 1.6;\">\n        We're excited to bring you our newest arrival! This Wireless Bluetooth Earbuds \n        has been flying off the shelves and we can see why:\n    </p>\n    \n    <ul style=\"font-size: 16px; line-height: 1.8;\">\n        <li>\u2b50 4.5/5 star rating</li>\n        <li>\ud83d\ude9a Fast & FREE shipping</li>\n        <li>\ud83d\udcaf Money-back guarantee</li>\n        <li>\ud83c\udf81 Perfect gift option</li>\n    </ul>\n    \n    <div style=\"text-align: center; margin: 30px 0;\">\n        <a href=\"[PRODUCT_LINK]\" style=\"background: #FF6B6B; color: white; padding: 15px 40px; \n           text-decoration: none; border-radius: 5px; font-size: 18px; font-weight: bold;\">\n            Shop Now \u2192\n        </a>\n    </div>\n    \n    <p style=\"color: #666; font-size: 14px;\">\n        Don't miss out - stock is limited and selling fast! \u23f0\n    </p>\n</div>\n            ",
+    "follow_up_sequence": [
+      {
+        "day": 1,
+        "subject": "Still thinking about the Wireless Bluetooth Earbuds? Here's 10% OFF!",
+        "message": "We noticed you were interested! Use code WELCOME10 for 10% off your first order."
+      },
+      {
+        "day": 3,
+        "subject": "FINAL HOURS: Your Wireless Bluetooth Earbuds is waiting...",
+        "message": "Last chance to grab this at the current price. Stock running low!"
+      },
+      {
+        "day": 7,
+        "subject": "See what our customers are saying! \u2b50\u2b50\u2b50\u2b50\u2b50",
+        "message": "Don't just take our word for it - read the 5-star reviews!"
+      }
+    ]
+  },
+  "google_ads": [
+    {
+      "headline_1": "Wireless Bluetooth Earbuds",
+      "headline_2": "Only $49.99 - Free Ship",
+      "headline_3": "\u2b50 Top Rated Product",
+      "description_1": "Premium Wireless Bluetooth Earbuds at unbeatable prices. Fast shipping, money-back guarantee.",
+      "description_2": "Shop now and save! 4.5\u2b50 rating. Thousands of happy customers.",
+      "keywords": [
+        "wireless bluetooth earbuds",
+        "buy wireless bluetooth earbuds",
+        "wireless bluetooth earbuds online",
+        "best wireless bluetooth earbuds",
+        "cheap wireless bluetooth earbuds",
+        "electronics"
+      ],
+      "bid_strategy": "Maximize Conversions",
+      "daily_budget": "$10-20"
+    }
+  ],
+  "pinterest_pins": [
+    {
+      "title": "Must-Have: Wireless Bluetooth Earbuds | $49.99",
+      "description": "Transform your electronics with this amazing Wireless Bluetooth Earbuds! \u2728 4.5\u2b50 rating \u2728 Fast shipping \u2728 Money-back guarantee. Click to shop now! #musthave #shopping #deals",
+      "board": "Electronics",
+      "image": "https://example.com/earbuds.jpg"
+    },
+    {
+      "title": "Deal Alert: Wireless Bluetooth Earbuds Under $59!",
+      "description": "Don't miss this incredible deal! Premium Wireless Bluetooth Earbuds at an unbeatable price. Join thousands of happy customers. Shop now! #deals #shopping #sale",
+      "board": "Daily Deals",
+      "image": "https://example.com/earbuds.jpg"
+    }
+  ],
+  "linkedin_posts": [
+    {
+      "title": "Smart Business Decision: Wireless Bluetooth Earbuds",
+      "content": "In today's competitive marketplace, every entrepreneur must stay ahead of trends. This Wireless Bluetooth Earbuds represents a smart investment for your business or personal use. With its premium quality and unbeatable value at just $49.99, it's a product worth considering. Would you consider adding this to your inventory? #business #entrepreneurship",
+      "hashtags": "#smartbuy #businessgrowth #entrepreneur #smallbusiness"
+    },
+    {
+      "title": "Innovative Product Review: Wireless Bluetooth Earbuds",
+      "content": "Have you tried the latest in Electronics innovation? The Wireless Bluetooth Earbuds is designed to enhance your productivity and lifestyle. With features that address modern needs, this product has earned a 4.5/5 star rating from users worldwide. Check it out for yourself! #innovation #techreview",
+      "hashtags": "#innovation #productivity #lifestyle #reviews"
+    }
+  ],
+  "twitter_threads": [
+    {
+      "thread": [
+        "\ud83d\ude80 New Product Alert! Wireless Bluetooth Earbuds is now available!",
+        "Perfect for anyone looking to enhance their lifestyle with quality products.",
+        "\ud83c\udf1f Premium features: High performance, durable design",
+        "\ud83d\udcb0 Great value at only $49.99",
+        "\u2705 Fast shipping & 30-day satisfaction guarantee",
+        "Check it out and let us know what you think! #newproduct"
+      ],
+      "hashtags": [
+        "#ProductAlert",
+        "#NewRelease",
+        "#ShopNow"
+      ]
+    }
+  ]
+}
