@@ -1594,15 +1594,18 @@ async def get_order(order_id: str):
         raise HTTPException(status_code=404, detail="Order not found")
 
 if __name__ == "__main__":
+    # Get port from environment (Railway sets PORT env var)
+    port = int(os.getenv("PORT", 8000))
+    
     print("🚀 Starting DropShip AI Backend Server...")
     print(f"🤖 AI Status: {'ENABLED' if AI_ENABLED else 'SIMULATED'}")
-    print("📡 Server: http://localhost:8000")
-    print("📚 Docs: http://localhost:8000/docs")
+    print(f"📡 Server: http://0.0.0.0:{port}")
+    print(f"📚 Docs: http://0.0.0.0:{port}/docs")
     print()
     
     uvicorn.run(
         app,
         host="0.0.0.0",
-        port=8000,
+        port=port,
         log_level="info"
     )
